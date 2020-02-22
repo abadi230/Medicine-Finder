@@ -10,25 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_02_011621) do
+ActiveRecord::Schema.define(version: 2020_01_23_224450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "drug_pharmacies", force: :cascade do |t|
-    t.string "drug_id"
-    t.string "pharmacy_id"
+    t.integer "drug"
+    t.integer "pharmacy"
     t.string "price"
+    t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "amount"
   end
 
   create_table "drugs", force: :cascade do |t|
     t.string "name"
     t.string "active_ingredient"
     t.string "strength"
-    t.string "dosage"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
