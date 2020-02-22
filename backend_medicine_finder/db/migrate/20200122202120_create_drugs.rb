@@ -4,7 +4,6 @@ class CreateDrugs < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :active_ingredient
       t.string :strength
-      t.string :dosage
       t.string :image
 
       t.timestamps
