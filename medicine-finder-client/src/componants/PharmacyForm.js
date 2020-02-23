@@ -5,7 +5,6 @@ export default class PharmacyForm extends Component {
     name: "",
     active_ingredient: "",
     strength: "",
-    dosage: "",
     image: ""
   };
 
@@ -42,12 +41,6 @@ export default class PharmacyForm extends Component {
           name="strength"
           onChange={this.handleChange}
           value={this.state.strength}
-        /><br/>
-        <label>Dosage</label>
-        <input
-          name="dosage"
-          onChange={this.handleChange}
-          value={this.state.dosage}
         /><br/>
         <label>Drug Photo</label>
         <input
