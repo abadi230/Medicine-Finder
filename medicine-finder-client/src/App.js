@@ -40,7 +40,12 @@ export default class App extends Component {
             <Route
               path="/drugs"
               render={(routerProps) => (
-                <DrugPage {...routerProps} drugs={this.state.drugs} />
+                <DrugPage
+                  {...routerProps}
+                  drugs={this.state.drugs}
+                  onChangeType={this.onChangeType}
+                  onSort={this.fetchDrugs}
+                />
               )}
             />
             <Route
@@ -53,8 +58,7 @@ export default class App extends Component {
               )}
             />
           </Switch>
-          <Filters onChangeType={this.onChangeType} onSort={this.fetchDrugs} />
-          <PharmacyForm />
+          
         </div>
       </Router>
     );
