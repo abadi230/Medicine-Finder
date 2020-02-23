@@ -5,7 +5,6 @@ export default class PharmacyForm extends Component {
     name: "",
     active_ingredient: "",
     strength: "",
-    dosage: "",
     image: ""
   };
 
@@ -24,32 +23,26 @@ export default class PharmacyForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} style={{background:'https://www.edarabia.com/ar/wp-content/uploads/2019/04/diseases-treated-colchicine.jpg'}}>
-        <lable>Drug Name</lable>
+        <label>Drug Name</label>
         {/* this.props.handleChange */}
         <input
           name="name"
           onChange={this.handleChange}
           value={this.state.name}
         /> <br/>
-        <lable>Active Ingredient</lable>
+        <label>Active Ingredient</label>
         <input
           name="active_ingredient"
           onChange={this.handleChange}
           value={this.state.active_ingredient}
         /><br/>
-        <lable>Strength</lable>
+        <label>Strength</label>
         <input
           name="strength"
           onChange={this.handleChange}
           value={this.state.strength}
         /><br/>
-        <lable>Dosage</lable>
-        <input
-          name="dosage"
-          onChange={this.handleChange}
-          value={this.state.dosage}
-        /><br/>
-        <lable>Drug Photo</lable>
+        <label>Drug Photo</label>
         <input
           name="image"
           onChange={this.handleChange}

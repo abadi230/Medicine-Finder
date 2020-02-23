@@ -28,7 +28,7 @@ class Api::V1::DrugsController < ApplicationController
 
     private
     def drug_params
-        params.permit(:name, :active_ingredient, :strength, :dosage, :image)
+        params.permit(:name, :active_ingredient, :strength, :image)
     end
     
     def set_drug
