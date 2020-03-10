@@ -11,7 +11,6 @@ const PharmaciesList = ({ pharmacies }) => {
   return (
     <div>
       <h3>{renderPharmacies}</h3>
-      <Link to='/pharmacies/new'>Add Drug</Link>
     </div>
   );
 };

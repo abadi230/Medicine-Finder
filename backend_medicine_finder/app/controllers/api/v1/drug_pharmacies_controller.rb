@@ -1,53 +1,44 @@
-class DrugPharmaciesController < ApplicationController
-  before_action :set_drug_pharmacy, only: [:show, :update, :destroy]
+class Api::V1::DrugPharmaciesController < ApplicationController
+    before_action :set_drug_pharmacis, only: [:show, :update, :destroy]
 
-  # GET /drug_pharmacies
-  def index
-    @drug_pharmacies = DrugPharmacy.all
-
-    render json: @drug_pharmacies
-  end
-
-  # GET /drug_pharmacies/1
-  def show
-    render json: @drug_pharmacy
-  end
-
-  # POST /drug_pharmacies
-  def create
-    @drug_pharmacy = DrugPharmacy.new(drug_pharmacy_params)
-
-    if @drug_pharmacy.save
-      render json: @drug_pharmacy, status: :created, location: @drug_pharmacy
-    else
-      render json: @drug_pharmacy.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /drug_pharmacies/1
-  def update
-    if @drug_pharmacy.update(drug_pharmacy_params)
-      render json: @drug_pharmacy
-    else
-      render json: @drug_pharmacy.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /drug_pharmacies/1
-  def destroy
-    drug_pharmacyId = @drug_pharmacy.id
-    @drug_pharmacy.destroy
-
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_drug_pharmacy
-      @drug_pharmacy = DrugPharmacy.find(params[:id])
+    def index
+        drug_pharmacis = DrugPharmacy.all 
+        render json: drug_pharmacis, status: 200
     end
 
-    # Only allow a trusted parameter "white list" through.
-    def drug_pharmacy_params
-      params.permit(:drug, :pharmacy, :price, :quantity)
+    # def new
+    #     @pharmacy = Pharmacy.find([:pharmacy_id])
+    #     @drug = Drug.find([:drug_id])
+
+    # end
+
+    def create
+        drug_pharmacis = DrugPharmacy.create(drug_pharmacis_params)
+        render json: drug_pharmacis, status: 201
     end
+
+    def update
+        @drug_pharmacis.update(drug_pharmacis_params)
+        render json: @drug_pharmacis, status: 200
+    end
+
+    def destroy
+        drug_pharmacis_id = @drug_pharmacis.id
+        @drug_pharmacis.destroy
+        render json: {message: 'Zap! Drug pharmacies Deleted', drug_pharmacis_id: drug_pharmacis_id}
+    end
+
+    def show 
+        render json: @drug_pharmacis, status: 200
+    end
+    
+    private
+    def drug_pharmacis_params
+        params.permit(:price, :quantity, :drug_id, :pharmacy_id)
+    end
+
+    def set_drug_pharmacis
+        @drug_pharmacis = DrugPharmacy.find(param[:id])
+    end
+
 end

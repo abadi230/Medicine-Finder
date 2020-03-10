@@ -7,7 +7,7 @@ class Api::V1::DrugsController < ApplicationController
     end
     
     def create
-        drug = Drug.cteate(drug_params)
+        drug = Drug.create(drug_params)
         render json: drug, status: 201
     end
     

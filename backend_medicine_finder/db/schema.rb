@@ -10,18 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_23_224450) do
+ActiveRecord::Schema.define(version: 2020_02_25_233721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "drug_pharmacies", force: :cascade do |t|
-    t.integer "drug"
-    t.integer "pharmacy"
-    t.string "price"
+    t.float "price"
     t.integer "quantity"
+    t.bigint "drug_id", null: false
+    t.bigint "pharmacy_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["drug_id"], name: "index_drug_pharmacies_on_drug_id"
+    t.index ["pharmacy_id"], name: "index_drug_pharmacies_on_pharmacy_id"
   end
 
   create_table "drugs", force: :cascade do |t|
@@ -47,4 +49,6 @@ ActiveRecord::Schema.define(version: 2020_01_23_224450) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "drug_pharmacies", "drugs"
+  add_foreign_key "drug_pharmacies", "pharmacies"
 end
