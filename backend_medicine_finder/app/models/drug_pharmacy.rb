@@ -1,4 +1,4 @@
 class DrugPharmacy < ApplicationRecord
-    belongs_to :Pharmacy
-    belongs_to :Drug
+  belongs_to :drug
+  belongs_to :pharmacy
 end

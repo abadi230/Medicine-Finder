@@ -104,11 +104,11 @@
   )
   
 
-DrugPharmacy.create(price: "£50",quantity: 5, drug: d1.id, pharmacy: p1.id)
-DrugPharmacy.create(price: "£70.30",quantity: 3, drug: d2.id, pharmacy: p2.id)
-DrugPharmacy.create(price: "£100",quantity: 1, drug: d3.id, pharmacy: p2.id)
-DrugPharmacy.create(price: "£80",quantity: 9, drug: d4.id, pharmacy: p3.id)
-DrugPharmacy.create(price: "£20",quantity: 3, drug: d2.id, pharmacy: p3.id)
-DrugPharmacy.create(price: "£30",quantity: 2, drug: d1.id, pharmacy: p1.id)
-DrugPharmacy.create(price: "£60",quantity: 7, drug: d3.id, pharmacy: p2.id)
+DrugPharmacy.create(price: 50,quantity: 5, drug: d1, pharmacy: p1)
+DrugPharmacy.create(price: 70.30,quantity: 3, drug: d2, pharmacy: p2)
+DrugPharmacy.create(price: 100,quantity: 1, drug: d3, pharmacy: p2)
+DrugPharmacy.create(price: 80,quantity: 9, drug: d4, pharmacy: p3)
+DrugPharmacy.create(price: 20,quantity: 3, drug: d2, pharmacy: p3)
+DrugPharmacy.create(price: 30,quantity: 2, drug: d1, pharmacy: p1)
+DrugPharmacy.create(price: 60,quantity: 7, drug: d3, pharmacy: p2)
 

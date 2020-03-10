@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import Filters from "./componants/Filters";
-import PharmacyForm from "./componants/PharmacyForm";
-import { get, urlDrugs, urlPharmacies } from "./assest/Api";
+import { get, urlDrugs, urlPharmacies, urldrugsInfo } from "./assest/Api";
 import NavBar from "./componants/NavBar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DrugPage from "./containers/DrugPage";
@@ -11,6 +9,7 @@ export default class App extends Component {
   state = {
     drugs: [],
     pharmacies: [],
+    drugsInfo:[],
     filters: {
       sort: "mile"
     }
@@ -21,6 +20,8 @@ export default class App extends Component {
     get(urlPharmacies).then((pharmacies) =>
       this.setState({ pharmacies: pharmacies })
     );
+    get(urldrugsInfo).then(drugsInfo => this.setState({drugsInfo: drugsInfo}))
+    
   }
 
   onChangeType = ({ target: { value } }) => {
@@ -29,7 +30,7 @@ export default class App extends Component {
     });
   };
   fetchDrugs = () => {
-    console.log("should display all drugs depends on type");
+
   };
   render() {
     return (
@@ -43,6 +44,7 @@ export default class App extends Component {
                 <DrugPage
                   {...routerProps}
                   drugs={this.state.drugs}
+                  drugsInfo={this.state.drugsInfo}
                   onChangeType={this.onChangeType}
                   onSort={this.fetchDrugs}
                 />
@@ -54,11 +56,11 @@ export default class App extends Component {
                 <PharmacyPage
                   {...routerProps}
                   pharmacies={this.state.pharmacies}
+                  drugs={this.state.drugs}
                 />
               )}
             />
           </Switch>
-          
         </div>
       </Router>
     );

@@ -7,7 +7,8 @@ const PharmacyShow = ({ match, pharmacies }) => {
     <div>
       <h3>{pharmacy?.name}</h3>
       <h4>{pharmacy?.location}</h4>
-      <Link to='/pharmacies'>Back</Link>
+      <Link to="/pharmacies">Back</Link>  {"| "}
+      <Link to={`${match.url}/new`}>Add Drug</Link>
     </div>
   );
 };
