@@ -9,7 +9,7 @@ const PharmaciesList = ({ pharmacies }) => {
     </Link>
   ));
   return (
-    <div>
+    <div className='home'>
       <h3>{renderPharmacies}</h3>
     </div>
   );
