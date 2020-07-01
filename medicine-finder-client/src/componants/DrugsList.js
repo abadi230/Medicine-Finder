@@ -14,7 +14,8 @@ const DrugsList = ({ drugs }) => {
   ));
   
   return (
-    <div>
+    <div className='home'>
+      
       <h3>{renderDrugs}</h3>
     </div>
   );

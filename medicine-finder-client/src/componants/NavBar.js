@@ -1,37 +1,35 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
-    return (
-      <div
-        style={{
-          borderBottom: "2px solid black",
-          paddingBottom: "10px",
-          marginBottom: "12px"
+  return (
+    <div
+      style={{
+        borderBottom: "2px solid black",
+        paddingBottom: "10px",
+        marginBottom: "12px"
+      }}>
+      <NavLink
+        to="/drugs"
+        exact
+        style={link}
+        activeStyle={{
+          background: "darkblue"
         }}>
-        
-        
-        <NavLink
-          to="/drugs"
-          exact
-          style={link}
-          activeStyle={{
-            background: "darkblue"
-          }}>
-          Drugs
-        </NavLink>
-        <NavLink
-          to="/pharmacies"
-          exact
-          style={link}
-          activeStyle={{
-            background: "darkblue"
-          }}>
-          Pharmacies
-        </NavLink>
-      </div>
-    );
-}
+        Drugs
+      </NavLink>
+      <NavLink
+        to="/pharmacies"
+        exact
+        style={link}
+        activeStyle={{
+          background: "darkblue"
+        }}>
+        Pharmacies
+      </NavLink>
+    </div>
+  );
+};
 /* Add basic styling for NavLinks */
 const link = {
   marginRight: "10px",
@@ -42,4 +40,4 @@ const link = {
   textDecoration: "none",
   color: "white"
 };
-export default NavBar
+export default NavBar;
